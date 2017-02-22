@@ -1,0 +1,51 @@
+
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Raleway:200|Sahitya|Source+Sans+Pro:700');
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+@import "users.scss";
+
+body{
+	background-image: url(collage.jpg);
+}
+
+h2{
+	font-size: 40px;
+	font-family: 'Raleway', sans-serif;
+	padding-bottom: 25px;
+}
+
+.jumbotron {
+	font-size: 25px;
+	padding: 35px;
+	margin: 110px;
+	margin-right: 400px;
+	margin-left: 400px;
+	font-family: 'Sahitya', serif;
+	padding-bottom: 50px;
+	padding-top: 25px;
+	border-radius: 10px;
+}
+.container {
+	margin: auto;
+  	vertical-align: center;
+  	text-align: center;
+}
+.piccontainer {
+	background-color: #F0F1F3;
+	text-align: center;
+	vertical-align: center;
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+.btn-group {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.search {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.well{
+	font-family: 'Raleway', sans-serif;
+}
