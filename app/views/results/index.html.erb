@@ -7,13 +7,13 @@
 
 	  		</div>
 	  		<div class="well" style="color: #808782">
-	            <%= text_field_tag "search", 'San Francisco...' %>
+	            <%= text_field_tag "search", nil, placeholder: "San Francisco" %>
 			</div>
 	  		<div class='time' style="color: #808782">
 	  		How long are you staying?
 	  		</div>
 		        <div class="well" style="color: #808782">
-			  		<%= select_tag(:option, options_for_select([['24 hours', 1], ['48 hours', 2], ['72 hours', 3], ['1 Week Plus', 4]], selected: :option )) %>
+			  		<%= select_tag(:trip_length, options_for_select([['24 hours', '24 hours'], ['48 hours', '48 hours'], ['72 hours', '72 hours'], ['1 Week Plus', '1 Week Plus']], selected: :trip_length )) %>
 				</div>
 			<div class="search">
 				<%= submit_tag 'Search Results', class: 'btn btn-default', :style => 'float: right;' %>
