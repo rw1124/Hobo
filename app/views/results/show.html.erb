@@ -1,330 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>CSS Accordion Slider</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>
-.accordion {
-    -webkit-box-shadow: 0px 75px 35px -55px rgba(10, 30, 65, 0.6);
-    -moz-box-shadow: 0px 75px 35px -55px rgba(10, 30, 65, 0.6);
-    box-shadow: 0px 75px 35px -55px rgba(10, 30, 65, 0.6);
-    font-family: Arial, Helvetica, sans-serif;
-    border-color: #d5d0d0;
-    border-style: solid;
-    border-width: 12px;
-    border-radius: 21px;
-    margin: 0 auto;
-    height: 545px;
-    width: 700px;
-}
-
-.accordion > ul > li,
-.accordion-title,
-.accordion-content,
-.accordion-separator {
-    float: none;
-}
-
-.accordion > ul > li {
-    background-color: #1f1f1f;
-    margin-right: -0px;
-    margin-bottom: -210px;
-}
-
-.accordion-select:checked ~ .accordion-separator {
-    margin-right: 0px;
-    margin-bottom: 210px;
-}
-
-.accordion-title,
-.accordion-select  {
-    background-color: #f4f3f3;
-    color: #9c9797;
-    width: 700px;
-    height: 65px;
-    font-size: 20px;
-}
-
-.accordion-title span {
-    margin-bottom: 20px; 
-    margin-left: 33px;
-}
-
-.accordion-select:hover ~ .accordion-title,
-.accordion-select:checked ~ .accordion-title {
-    background-color: #d3dbe9;
-}
-
-.accordion-title span  {	
-    transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -ms-writing-mode: lr-tb;
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
-    margin-bottom: 0px;
-    line-height: 65px;
-}
-
-.accordion-content {
-    background-color: #eeeeee;
-    color: #898786;
-    height: 154px;
-    width: 644px;
-    padding: 28px;
-}
-
-.accordion-title,
-.accordion-select:checked ~ .accordion-content {
-    margin-right: 2px;
-    margin-bottom: 2px;
-}
-
-/* Do not change following properties, they aren't 
-generated automatically and are common for each slider. */
-.accordion {
-    overflow: hidden;
-}
-
-.accordion > ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    width: 101%;
-}
-
-.accordion > ul > li,
-.accordion-title {
-    position: relative;
-}
-
-.accordion-select {
-    cursor: pointer;
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    margin: 0;
-    z-index: 1;
-}
-
-.accordion-title span {
-    display: block;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    white-space: nowrap;
-}
-
-.accordion-content {
-    position: relative;
-    overflow: auto;
-}
-
-.accordion-separator {
-    transition: margin 0.3s ease 0.1s;
-    -o-transition: margin 0.3s ease 0.1s;
-    -moz-transition: margin 0.3s ease 0.1s;
-    -webkit-transition: margin 0.3s ease 0.1s;
-}
-</style>
-</head>
-<body>
-<div class="accordion">
-    <ul>
-        <li>
-            <input type="radio" name="select" class="accordion-select" checked />
-            <div class="accordion-title">
-                <span>Hobo Hotel</span>
-            </div>
-            <div class="accordion-content">
-                <% @hotels.each do |hotel| %>
-			<div>
-				<%= hotel.name %>
-				<hr>
-				<%= hotel.snippet_text %>
-				<hr>
-				<img src= <%= hotel.image_url %> >
-				<hr>
-				<img src= <%= hotel.rating_img_url_large%> >
-				<hr>
-				<%= hotel.display_phone %>
-
-			</div>
-		 	
-		 	<div>
-		 		<% hotel.location.display_address.each do |address_part| %>
-		 		<%= address_part %>
-		 			<br>
-				<% end %>	
-			</div>
-		<% end	%>
-            </div>
-            <div class="accordion-separator"></div>
-        </li>
-        <li>
-            <input type="radio" name="select" class="accordion-select" />
-            <div class="accordion-title">
-                <span>Hobo Eat</span>
-            </div>
-            <div class="accordion-content">
-                <% @restaurants.each do |restaurant| %>
-
-		  	<div>
-				<%= restaurant.name %>
-				<hr>
-				<%= restaurant.snippet_text %>
-				<hr>
-				<img src= <%= restaurant.image_url %> >
-				<hr>
-				<img src= <%= restaurant.rating_img_url_large%> >
-				<hr>
-				<%= restaurant.display_phone %>
-
-			</div>
-		 	
-		 	<div>
-		 		<% restaurant.location.display_address.each do |address_part| %>
-		 			<%= address_part %>
-		 			<br>
-				<% end %>	
-			</div>
-		<% end %>
-            </div>
-            <div class="accordion-separator"></div>
-        </li>
-        <li>
-            <input type="radio" name="select" class="accordion-select" />
-            <div class="accordion-title">
-                <span>Hobo Activity</span>
-            </div>
-            <div class="accordion-content">
-                <% @localflavors.each do |localflavor| %>
-
-		  	<div>
-				<%= localflavor.name %>
-				<hr>
-				<%= localflavor.snippet_text %>
-				<hr>
-				<img src= <%= localflavor.image_url %> >
-				<hr>
-				<img src= <%= localflavor.rating_img_url_large%> >
-				<hr>
-				<%= localflavor.display_phone %>
-			</div>
-		 	
-		 	<div>
-		 		<% localflavor.location.display_address.each do |address_part| %>
-		 			<%= address_part %>
-		 			<br>
-				<% end %>	
-			</div>
-		<% end %>	
-            </div>
-            <div class="accordion-separator"></div>
-        </li>
-        <li>
-            <input type="radio" name="select" class="accordion-select" />
-            <div class="accordion-title">
-                <span>Hobo Pet</span>
-            </div>
-            <div class="accordion-content">
-                <% @pets.each do |pet| %>
-
-		  	<div>
-				<%= pet.name %>
-				<hr>
-				<%= pet.snippet_text %>
-				<hr>
-				<img src= <%= pet.image_url %> >
-				<hr>
-				<img src= <%= pet.rating_img_url_large%> >
-				<hr>
-				<%= pet.display_phone %>
-			</div>
-		 	
-		 	<div>
-		 		<% pet.location.display_address.each do |address_part| %>
-		 			<%= address_part %>
-		 			<br>
-				<% end %>	
-			</div>
-		<% end %>		
-            </div>
-            <div class="accordion-separator"></div>
-        </li>
-        <li>
-            <input type="radio" name="select" class="accordion-select" />
-            <div class="accordion-title">
-                <span>Hobo Shop</span>
-            </div>
-            <div class="accordion-content">
-                <% @shoppingcenters.each do |shoppingcenter| %>
-
-		  	<div>
-				<%= shoppingcenter.name %>
-				<hr>
-				<%= shoppingcenter.snippet_text %>
-				<hr>
-				<img src= <%= shoppingcenter.image_url %> >
-				<hr>
-				<img src= <%= shoppingcenter.rating_img_url_large%> >
-				<hr>
-				<%= shoppingcenter.display_phone %>
-			</div>
-		 	
-		 	<div>
-		 		<% shoppingcenter.location.display_address.each do |address_part| %>
-		 			<%= address_part %>
-		 			<br>
-				<% end %>	
-			</div>
-		<% end %>			
-            </div>
-            <div class="accordion-separator"></div>
-        </li>
-    </ul>
-</div>
-
-</body>
-</html>
-
-<!-- <div class="jumbotron2" style="background-color: #F9F9F9" >
-	<div class="container2">
-	  -->
-		<div class='destination' style="color: #808782">
+<div class='destination' style="color: #808782">
   			<h2>HOBO Results</h2>
-	  		Hobo Hotel
-		</div>
+</div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        Hobo Hotel</a>
+      </h4>
+    </div>
+	    <div id="collapse1" class="panel-collapse collapse">
+	      <div class="panel-body">
+	      	
+	      	<% @hotels.each do |hotel| %>
+				<div>
+					<%= hotel.name %>
+					<hr>
+					<%= hotel.snippet_text %>
+					<hr>
+					<img src= <%= hotel.image_url %> >
+					<hr>
+					<img src= <%= hotel.rating_img_url_large%> >
+					<hr>
+					<%= hotel.display_phone %>
 
-		
-		<% @hotels.each do |hotel| %>
-			<div>
-				<%= hotel.name %>
-				<hr>
-				<%= hotel.snippet_text %>
-				<hr>
-				<img src= <%= hotel.image_url %> >
-				<hr>
-				<img src= <%= hotel.rating_img_url_large%> >
-				<hr>
-				<%= hotel.display_phone %>
+				</div>
+			 	
+			 	<div>
+			 		<% hotel.location.display_address.each do |address_part| %>
+			 		<%= address_part %>
+			 			<br>
+					<% end %>	
+				</div>
+			<% end	%>
 
-			</div>
-		 	
-		 	<div>
-		 		<% hotel.location.display_address.each do |address_part| %>
-		 		<%= address_part %>
-		 			<br>
-				<% end %>	
-			</div>
-		<% end	%>
-		<br>
-	  	<div class='eats' style="color: #808782">
-	  		Hobo Eats
-	  	</div>
-	  	<% @restaurants.each do |restaurant| %>
+	      </div>
+	    </div>
+ 
+  	<div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        Hobo Eats</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+      	
+      	<% @restaurants.each do |restaurant| %>
 
 		  	<div>
 				<%= restaurant.name %>
@@ -346,10 +67,19 @@ generated automatically and are common for each slider. */
 				<% end %>	
 			</div>
 		<% end %>
-		<div class='localflavors' style="color: #808782">
-	  		Hobo Sites
-	  	</div>        
-		<% @localflavors.each do |localflavor| %>
+	  </div>
+    </div>
+ 
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Hobo Activity </a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+      	
+      	<% @localflavors.each do |localflavor| %>
 
 		  	<div>
 				<%= localflavor.name %>
@@ -370,10 +100,19 @@ generated automatically and are common for each slider. */
 				<% end %>	
 			</div>
 		<% end %>	
-		<div class='pets' style="color: #808782">
-	  		Hobo Pets
-	  	</div>   		
-    	<% @pets.each do |pet| %>
+
+      </div>
+    </div>
+    <div class="panel-heading"> 
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+        Hobo Pets</a>
+      </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+      <div class="panel-body">
+      	
+      	<% @pets.each do |pet| %>
 
 		  	<div>
 				<%= pet.name %>
@@ -394,30 +133,44 @@ generated automatically and are common for each slider. */
 				<% end %>	
 			</div>
 		<% end %>		
-    	<div class='shoppingcenters' style="color: #808782">
-	  		Hobo Shopping?
-	  	</div>
-		<% @shoppingcenters.each do |shoppingcenter| %>
 
-		  	<div>
-				<%= shoppingcenter.name %>
-				<hr>
-				<%= shoppingcenter.snippet_text %>
-				<hr>
-				<img src= <%= shoppingcenter.image_url %> >
-				<hr>
-				<img src= <%= shoppingcenter.rating_img_url_large%> >
-				<hr>
-				<%= shoppingcenter.display_phone %>
-			</div>
+      </div>
+    </div>
+  </div>
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+        Hobo Shops</a>
+      </h4>
+    </div>
+    <div id="collapse5" class="panel-collapse collapse">
+      <div class="panel-body">
+      	
+	      	<% @shoppingcenters.each do |shoppingcenter| %>
+
+			  <div>
+					<%= shoppingcenter.name %>
+					<hr>
+					<%= shoppingcenter.snippet_text %>
+					<hr>
+					<img src= <%= shoppingcenter.image_url %> >
+					<hr>
+					<img src= <%= shoppingcenter.rating_img_url_large%> >
+					<hr>
+					<%= shoppingcenter.display_phone %>
+				</div>
 		 	
-		 	<div>
-		 		<% shoppingcenter.location.display_address.each do |address_part| %>
-		 			<%= address_part %>
-		 			<br>
+			 	<div>
+			 		<% shoppingcenter.location.display_address.each do |address_part| %>
+			 			<%= address_part %>
+			 			<br>
+					<% end %>	
+				</div>
 				<% end %>	
-			</div>
-		<% end %>			
-  	<!-- </div>
-	
- </div> -->
+
+      </div>
+    </div>
+  </div>
+ </div>
+
+
