@@ -9,6 +9,4 @@ Rails.application.routes.draw do
   delete 'logout', to: 'users#destroy'
 
   get '/', to: 'users#new'
-
-  post '/lookup', to: 'results#create'
 end

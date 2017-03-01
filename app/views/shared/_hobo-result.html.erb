@@ -1,0 +1,16 @@
+<div class="hobo-result">
+	<h2><%= hobo_result.name %></h2>
+	<hr>
+	"<%= hobo_result.snippet_text %>"
+	<hr>
+	<img src= <%= hobo_result.image_url %> >
+	<hr>
+	<img src= <%= hobo_result.rating_img_url_large%> >
+	<hr>
+	<%= hobo_result.display_phone %>
+
+	<% hobo_result.location.display_address.each do |address_part| %>
+		<%= address_part %>
+		<br>
+	<% end %>	
+</div>
