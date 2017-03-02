@@ -9,12 +9,13 @@
     <div class="panel-heading">
       <h4 class="panel-title" style="color: #808782">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        Hobo Hotel</a>
+        Hobo Hotel
+        (<%= @hotels.count %>)
+        </a>
       </h4>
     </div>
 	    <div id="collapse1" class="panel-collapse collapse">
 	      <div class="panel-body">
-	      	
 	      	<% @hotels.each do |hotel| %>
 
 						<%= render 'shared/hobo-result', hobo_result: hotel %>
@@ -26,7 +27,9 @@
   	<div class="panel-heading">
       <h4 class="panel-title" style="color: #808782">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-        Hobo Eat</a>
+        Hobo Eat
+				(<%= @restaurants.count %>)
+        </a>
       </h4>
     </div>
 	    <div id="collapse2" class="panel-collapse collapse">
@@ -43,7 +46,9 @@
     <div class="panel-heading">
       <h4 class="panel-title" style="color: #808782">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        Hobo Activity </a>
+        Hobo Activity 
+        (<%= @localflavors.count %>)
+        </a>
       </h4>
     </div>
 	    <div id="collapse3" class="panel-collapse collapse">
@@ -60,7 +65,9 @@
     <div class="panel-heading"> 
       <h4 class="panel-title" style="color: #808782">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-        Hobo Pet</a>
+        Hobo Pet
+        (<%= @pets.count %>)
+        </a>
       </h4>
     </div>
 	    <div id="collapse4" class="panel-collapse collapse">
@@ -78,7 +85,9 @@
     <div class="panel-heading">
       <h4 class="panel-title" style="color: #808782">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-        Hobo Shop</a>
+        Hobo Shop
+        (<%= @shoppingcenters.count %>)
+        </a>
       </h4>
     </div>
     <div id="collapse5" class="panel-collapse collapse">

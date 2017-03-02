@@ -8,6 +8,7 @@
 @import "users.scss";
 @import "results.scss";
 @import "hobo-result.scss";
+
 body{
 	background-image: url(collage.jpg);
 }
@@ -21,9 +22,14 @@ h2{
 .jumbotron {
 	font-size: 25px;
 	padding: 35px;
-	margin: 110px;
-	margin-right: 400px;
-	margin-left: 400px;
+	margin: 10%;
+
+	@media screen and (min-width: 600px) {
+		margin-top: 100px;
+		margin-left: 30%;
+		margin-right: 30%;
+	}
+
 	font-family: 'Sahitya', serif;
 	padding-bottom: 50px;
 	padding-top: 25px;
@@ -46,7 +52,12 @@ h2{
 }
 .search {
 	font-family: 'Source Sans Pro', sans-serif;
+
 }
 .well{
 	font-family: 'Raleway', sans-serif;
+	@media screen and (min-width: 550px) {
+
+	}
 }
+

@@ -7,28 +7,33 @@ class TripIdeaService
 	end
 
 	def hotel_search
-		results = Yelp.client.search(destination, {term: 'hotel', limit: business_count[:hotels]})
-		business = results.businesses
+		results = Yelp.client.search(destination, {term: 'hotel', limit: 20})
+		hotel_count = business_count[:hotels] # 1, 2 , 3 , 4
+		results.businesses.sample(hotel_count) # COLLECTION you get back from the api (20) array
 	end
 
 	def restaurant_search
-		results = Yelp.client.search(destination,{term: 'food', limit: business_count[:restaurants]})
-		business = results.businesses
+		results = Yelp.client.search(destination,{term: 'food', limit: 30})
+		restaurant_count = business_count[:restaurants]
+		results.businesses.sample(restaurant_count)
 	end
 		
 	def localflavor_search
-		results = Yelp.client.search(destination, {term: 'localflavor', limit: business_count[:localflavors]})
-		business = results.businesses
+		results = Yelp.client.search(destination, {term: 'localflavor', limit:20})
+		localflavor_count = business_count[:localflavors]
+		results.businesses.sample(localflavor_count)
 	end
 
 	def pet_search
-		results = Yelp.client.search(destination, {term: 'pets', limit: business_count[:pets]})
-		business = results.businesses
+		results = Yelp.client.search(destination, {term: 'pets', limit:15})
+		pet_count = business_count[:pets]
+		results.businesses.sample(pet_count)
 	end
 
 	def shoppingcenter_search
-		results = Yelp.client.search(destination, {term: 'shoppingcenter', limit: business_count[:shoppingcenters]})
-		business = results.businesses
+		results = Yelp.client.search(destination, {term: 'shoppingcenter', limit:10})
+		shoppingcenter_count = business_count[:shoppingcenters]
+		results.businesses.sample(shoppingcenter_count)
 	end
 	# restaurants = Yelp.client.search(destination, {term: 'food', limit: 2})
 	# activities = Yelp.client.search(destination, {term: 'active', limit: 1})
