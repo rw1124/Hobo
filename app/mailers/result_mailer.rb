@@ -14,4 +14,4 @@ end
 
 
 
-ResultMailer.results_email("San Antonio").deliver_now
+# ResultMailer.results_email("San Antonio").deliver_now
