@@ -5,15 +5,15 @@
 		<div class='destination' style="color: #808782	background opacity: .5%">
   			<h1>HOBO Results</h1>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title" style="color: #808782">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        Hobo Hotel
-        (<%= @hotels.count %>)
-        </a>
-      </h4>
-    </div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		  <h4 class="panel-title" style="color: #808782">
+		    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+		    Hobo Hotel
+		    (<%= @hotels.count %>)
+		    </a>
+		  </h4>
+		</div>
 	    <div id="collapse1" class="panel-collapse collapse">
 	      <div class="panel-body">
 	      	<% @hotels.each do |hotel| %>
@@ -21,8 +21,8 @@
 						<%= render 'shared/hobo-result', hobo_result: hotel %>
 					<% end	%>
 
-	      </div>
-	    </div>
+	     </div>
+	  </div>
  
   	<div class="panel-heading">
       <h4 class="panel-title" style="color: #808782">
@@ -40,8 +40,8 @@
 				  	<%= render 'shared/hobo-result', hobo_result: restaurant %>
 
 					<% end %>
-		  </div>
-	  </div>
+		  	</div>
+	  	</div>
  
     <div class="panel-heading">
       <h4 class="panel-title" style="color: #808782">
@@ -99,6 +99,7 @@
 
 		  </div>    
     </div>
-</div>
-</div>
+    
+		</div>
+	</div>
 </div>

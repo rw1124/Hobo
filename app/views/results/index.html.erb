@@ -1,41 +1,27 @@
-
-
-
-
-
-
-
-  
-	<div class="jumbotron" style="background-color: #F9F9F9" >
+<div class="jumbotron" style="background-color: #F9F9F9" >
 	<div class="container">
-	 <%= form_tag("/results", method: :post) do %>
-		<div class='destination' style="color: #808782">
-		
-
-  		<h2>HELLO, HOBO</h2>
+	 	<%= form_tag("/results", method: :post) do %>
+			<div class='destination' style="color: #808782">
+				<h2>HELLO, HOBO</h2>
 	  		Where are you going?
 
-	  		</div>
+	  	</div>
 	  		<div class="well" style="color: #808782">
 	            <%= text_field_tag "search", nil, placeholder: "San Francisco", :style => 'width:90%;' %>
-			</div>
+				</div>
+
 	  		<div class='time' style="color: #808782">
 	  		How long are you staying?
 	  		</div>
-		        <div class="well" style="color: #808782">
-			  		<%= select_tag(:trip_length, options_for_select([['24 hours', '24 hours'], ['48 hours', '48 hours'], ['72 hours', '72 hours'], ['1 Week Plus', '1 Week Plus']], selected: :trip_length ), {:style => 'width:90%'}) %>
+
+		      <div class="well" style="color: #808782">
+			  		<%= select_tag(:trip_length, options_for_select([['24 hours', '24 hours'], ['48 hours', '48 hours'], ['72 hours', '72 hours'], ['1 Week Plus', '1 Week Plus']], selected: :trip_length ), {:style => 'width:60%'}) %>
 			  	</div>
-			<div class="search">
+
+				<div class="search">
 				<%= submit_tag 'Search Results', class: 'btn btn-default', :style => 'float: right;' %>
-			</div>
-				<% if @error.present? %>
-  			<div id="error_explanation">
-    			<h2> An error prohibited this destination from being searched:</h2>
-    		<ul>
-      			<li><%= @error %></li>
-    		</ul>
-    	<% end %>
-			</div>
-  		</div>
-	<% end %>
- 	</div>
+				</div>
+
+  	<% end %>
+  </div>
+</div>
